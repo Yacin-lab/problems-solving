@@ -1,0 +1,16 @@
+	🧩 — *word_rev*
+	-----------------------------------------
+	Directory: problems_solving/
+	Files: flowchart, wordrev.c 
+	Allowed functions: write only
+	-----------------------------------------
+	Subject: Write a program that takes a
+	string and prints its words in reverse
+	order.
+	Example:
+	Input: "hello world from me" 
+	Output: "me from world hello"
+	-----------------------------------------
+	💬 Discussion Question: How did
+	you split words without using any
+	string library functions?

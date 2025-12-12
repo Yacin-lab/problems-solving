@@ -1,0 +1,17 @@
+Subject
+---
+	File : longest_palindrome.c
+	Allowed functions: write
+	----------
+	Write a program that finds the longest palindromic substring from a given string.
+	The program should return only the substring.
+	----------
+	 Example:
+	$> ./longest_palindrome "abcdcsdfabbccb" | cat -e
+	bccb$
+	$> ./longest_palindrome "racecar123" | cat -e
+	racecar$
+	$> ./longest_palindrome "hello" | cat -e
+	ll$
+	$> ./longest_palindrome "" | cat -e
+	$
