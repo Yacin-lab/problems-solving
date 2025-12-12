@@ -1,0 +1,44 @@
+	
+	PROBLEMS SOLVING
+	
+		Longest Palindrom:
+		- Loop each position as center	while(str[i])
+		- Check odd and even palindromes
+		- Expand while characters match	expand(...);
+		- Keep longest one	
+		- Print it
+
+		Pseudocode: 
+		FUNCTION longest_palindrome(str):
+		n = length of str
+		start = 0
+		max_len = 1
+
+		FOR i from 0 to n - 1:
+        # check odd-length palindrome
+        lenOdd = expand_from_center(str, i, i, n)
+        # check even-length palindrome
+        lenEven = expand_from_center(str, i, i + 1, n)
+
+        # choose the longer one
+        len = max(lenOdd, lenEven)
+
+        IF len > max_len THEN
+            max_len = len
+            start = i - (len - 1) / 2
+        END IF
+
+		END FOR
+		RETURN (start, max_len)
+
+		FUNCTION expand_from_center(str, left, right, n):
+
+		WHILE left >= 0 AND right < n AND str[left] == str[right]:
+        left = left - 1
+        right = right + 1
+
+		# final palindrome length
+		RETURN right - left - 1
+
+	Note:	start = center - (len - 1) / 2;	but f Even ila hsbna calcule 3adi ghat3ti result ghalta but
+				fach 3ndna hna type int kat7yd number li mora lfasila w kat3ti result shiha fga3 lhalat

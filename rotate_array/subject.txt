@@ -1,0 +1,23 @@
+
+			File : rotate_array.c
+		----------
+		Write a function that rotates an array of integers to the right by k steps.
+
+		The function should take two parameters:
+		- an array of integers
+		- an integer k representing the number of steps to rotate the array
+
+		The function should modify the original array in-place.
+
+		----------
+		Example:
+		int main()
+		{
+			int arr[] = {1, 2, 3, 4, 5};
+			int k = 2;
+			rotate_array(arr, 5, k);
+			for (int i = 0; i < 5; i++)
+				printf("%d ", arr[i]);
+			return 0;
+		}
+		// Output: 4 5 1 2 3

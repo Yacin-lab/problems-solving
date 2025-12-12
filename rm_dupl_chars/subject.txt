@@ -1,0 +1,60 @@
+
+	ssignment name : remove_duplicates_chars
+	Expected files : remove_duplicates_chars.c
+	Allowed functions : write
+	-------------------------------------------------------
+
+	Write a program that takes a single string as argument and prints the same string
+	with duplicate characters removed, while preserving the order of their first occurrence.
+
+	-------------------------------------------------------
+
+	Rules:
+
+	- Each character must appear only once in the output.
+	- The first occurrence of each character must be kept.
+	- Later duplicates must be removed.
+	- The order of characters must remain the same as in the original string.
+	- A newline must be printed at the end.
+
+	-------------------------------------------------------
+
+	Input considerations:
+
+	- The program receives at most one argument.
+	- If no argument is given, the program must only print a newline.
+	- The argument may contain:
+		- Lowercase and uppercase letters
+		- Digits
+		- Spaces and tabs
+		- Any printable ASCII character
+
+	-------------------------------------------------------
+
+	Output formatting:
+
+	- The resulting string is printed with no extra spaces added or removed,
+	  except those that are duplicates of existing spaces/tabs/characters.
+	- The program must print exactly one newline at the end.
+
+	-------------------------------------------------------
+	
+	Examples:
+
+	$> ./remove_duplicates_chars "banana" | cat -e
+	ban$
+
+	$> ./remove_duplicates_chars "hello world" | cat -e
+	helo wrd$
+
+	$> ./remove_duplicates_chars "aa11bb22" | cat -e
+	a1b2$
+
+	$> ./remove_duplicates_chars "  a   a  " | cat -e
+	 a$
+
+	$> ./remove_duplicates_chars "" | cat -e
+	$
+
+	$> ./remove_duplicates_chars | cat -e
+	$
