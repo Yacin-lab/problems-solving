@@ -1,0 +1,20 @@
+	run_length_encode.txt
+	==========================================
+	Assignment name : run_length_encode
+	Expected files  : run_length_encode.c
+	Allowed functions : write
+	-----------------------------------------
+	▪️Subject :
+	Write a program that takes a string as its first argument and compresses it using Run-Length Encoding (RLE).
+
+	Each group of identical consecutive characters must be replaced by the character followed by the number of repetitions.
+
+	▪️Example :
+	Input  : "aaabbc"
+	Output : "a3b2c1"
+
+	$> ./run_length_encode 'aaabbc' | cat -e
+	a3b2c1$
+	-----------------------------------------
+	Print the result followed by a newline.
+	Good luck 🧠👏
