@@ -32,7 +32,7 @@ void word_rev(char *str)
                 	i--;
 		if(i >= 0)
 			write(1, " ", 1);
-		if(i < 0)
+		else
 			break;
 	}
 }
