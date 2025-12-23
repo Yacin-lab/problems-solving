@@ -1,78 +1,109 @@
+//UPDATE CODE
 #include <unistd.h>
 
-int	main(int argc, char **argv)
+int ft_letter(char letter)
 {
-	int	i;
+        if((letter >= 'a' && letter <= 'z') || (letter >= 'A' && letter <= 'Z'))
+                return (1);
+        else
+                return (0);
+}
 
-	while(*argv[i])
-	{
-		while((*argv[j] < 'a' && *argv[j] > 'z') || (*argv[j] < 'A' && *argv[j] > 'Z'))
-		{
-			j++;
-		}
-		while(*argv[j] && ((*argv[j] >= 'a' && *argv[j] <= 'z') || (*argv[j] >= 'A' && *argv[j] <= 'Z')))
-		{
-			if(*argv[j] >= 'a' && *argv[j] <= 'z')
-				*argv[j] -= 48;
-			if(*argv[j + 1] >= 'A' && *argv[j + 1] <= 'Z')
-				*argv[j + 1] += 48;
-			j++;
-		
-		}
-		i++;
-	}
+void ft_UPPERCASE(char c)
+{
+        if(c >= 'a' && c <= 'z')
+                c -= 32;
+        write(1, &c, 1);
+}
 
-	//Preparing_string
-	//loop same time,
-	//	count lent and check if ther any lettres and make all letters lowercase
-	//	if no lettres, print argument + \n and return.
-	//
-	//Prossecing_string
-	//loop while element != letter
-	//	loop while element == letter,
-	//		if first element >= a & element <= z
-	//			element - 48
-	//		else break the loop
-	//		if next element >= A & element <= Z
-	//			element + 48
-	//		else break the loop
-	//
+void ft_lowercase(char c)
+{
+        if(c >= 'A' && c <= 'Z')
+                c += 32;
+        write(1, &c, 1);
+}
 
-	write(1, "\n", 1);
+int     main(int argc, char **argv)
+{
+        int     k;
+        int     i;
+
+        if(argc == 2)
+        {
+                k = 0;
+                i = 0;
+                while(argv[1][i])
+                {
+                        if(ft_letter(argv[1][i]))
+                        {
+                                if(k % 2 == 0)
+                                        ft_UPPERCASE(argv[1][i]);
+                                else
+                                        ft_lowercase(argv[1][i]);
+                                k++;
+                        }
+                        else
+                                write(1, &argv[1][i], 1);
+                        i++;
+                }
+        }
+        write(1, "\n", 1);
+        return (0);
+}
+
+/*#include <unistd.h>
+
+int ft_letter(char letter)
+{
+	if((letter >= 'a' && letter <= 'z') || (letter >= 'A' && letter <= 'Z'))
+		return (1);
+	else
+		return (0);
+}
+
+int ft_UPPERCASE(char *c)
+{
+	if(*c >= 'a' && *c <= 'z')
+		*c -= 32;
 	return (0);
 }
 
-
-/*
-#include <stdio.h>
-#include <unistd.h>
-
-int     main()
+int ft_lowercase(char *c)
 {
-    char *argv = "hello world!";
-    int     i, j;
-    i = 0;
-    j = 0;
+	if(*c >= 'A' && *c <= 'Z')
+		*c += 32;
+	return (1);
+}
 
-    while(argv[i])
-    {
-        while((argv[j] < 'a' && argv[j] > 'z') || (argv[j] < 'A' && argv[j] > 'Z'))
-        {
-                j++;
-        }
-        while(argv[j] && ((argv[j] >= 'a' && argv[j] <= 'z') || (argv[j] >= 'A' && argv[j] <= 'Z')))
-        {
-            if(argv[j] >= 'a' && argv[j] <= 'z')
-                    argv[j] -= 48;
-            if(argv[j + 1] >= 'A' && argv[j + 1] <= 'Z')
-                    argv[j + 1] += 48;
-            j++;
+int	main(int argc, char **argv)
+{
+	int	status;
+	int	i;
 
-        }
-        i++;
-    }
+	if(argc == 2)
+	{
+		status = 1;
+		i = 0;
+		while(argv[1][i])
+		{
+			if(ft_letter(argv[1][i]))
+			{
+				if(status)
+					status = ft_UPPERCASE(&argv[1][i]);
+				else
+					status = ft_lowercase(&argv[1][i]);
+			}
+			i++;
+		}
 
-    printf("%s\n", argv);
-    write(1, "\n", 1);
-    return (0);
+		i = 0;
+		while(argv[1][i])
+		{
+			write(1, &argv[1][i], 1);
+			i++;
+		}
+	}
+
+	write(1, "\n", 1);
+	return (0);
 }*/
