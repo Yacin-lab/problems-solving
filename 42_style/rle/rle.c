@@ -26,7 +26,8 @@ int main(int argc,char **argv)
                 }
                i++;
                 butnbr(count);
-                write(1,&argv[1][i],1);
+		if(argv[1][i] != '\0')
+                	write(1,&argv[1][i],1);
         }
     }  
     write(1,"\n",1);
