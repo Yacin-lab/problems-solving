@@ -10,17 +10,25 @@ int checkPositiveNumber(char *string)
     return (number);
 }
 
-void printDigitInOrder(int number)
+void invertedNumberPattern(int number)
 {
-    if(number == 0)
-        return;
-    printDigitInOrder(number / 10);
-    printf("%d\n", number % 10);
+    int i = number;
+    while(i >= 1)
+    {
+        int j = 1;
+        while(j <= i)
+        {
+            printf("%d", i);
+            j++;
+        }
+        printf("\n");
+        i--;
+    }
 }
 
 int main(void)
 {
-    int number = checkPositiveNumber("Please Enter the number: ");
-    printDigitInOrder(number);
+    short number = checkPositiveNumber("Please Enter the number: ");
+    invertedNumberPattern(number);
     return (0);
 }
