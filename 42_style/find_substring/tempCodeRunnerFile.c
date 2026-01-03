@@ -1,34 +1,56 @@
 #include <stdio.h>
 
-int checkPositiveNumber(char *string)
+int ft_strcmp(char *str1, char *str2)
 {
-    int number;
-    do {
-        printf("%s", string);
-        scanf("%d", &number);
-    } while(number <= 0);
-    return (number);
+    int i = 0;
+    while(str1[i])
+    {
+        if(str1[i] != str2[i])
+            break;
+        i++;
+    }
+    if(!str2[i])
+        return (1);
+    return (0);
 }
 
-void invertedNumberPattern(int number)
+char password(char *message, char *pwd)
 {
-    int i = number;
-    while(i >= 1)
+    printf("%s", message);
+    scanf("%3s", &pwd);     // "%3s" for read just 3 letters
+    return (pwd);
+}
+
+void guessPassword(char *pwd)
+{
+    char trail[4];
+    int i = 'A';
+    while(i <= 'A')
     {
-        int j = 1;
-        while(j <= i)
+        int j = 'A';
+        while(j <= 'Z')
         {
-            printf("%d", i);
+            int k = 'A';
+            while(k <= 'Z')
+            {
+                trail[0] = i;
+                trail[1] = j;
+                trail[2] = k;
+                trail[3] = '\0';
+                if(ft_strcmp(trail, pwd))
+                    printf("Password is: %s\n", trail);
+                k++;
+            }
             j++;
         }
-        printf("\n");
-        i--;
+        i++;
     }
 }
 
 int main(void)
 {
-    short number = checkPositiveNumber("Please Enter the number: ");
-    invertedNumberPattern(number);
+    char pwd[4];
+    password("Pleas enter your password (3-Letters UPPER): ", pwd);
+    guessPassword(pwd);
     return (0);
 }
